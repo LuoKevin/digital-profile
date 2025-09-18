@@ -1,5 +1,10 @@
+import type { ProjectItem } from "../../models/ProjectItem";
 
-const ProjectCanvasDisplay = () => {
+interface ProjectCanvasDisplayProps {
+    displayedProject: ProjectItem
+}
+
+const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({displayedProject}) => {
   return <div>ProjectCanvasDisplay</div>;
 }
 

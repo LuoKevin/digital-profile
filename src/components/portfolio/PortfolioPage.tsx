@@ -5,7 +5,7 @@ import { ProjectItem } from "../../models/ProjectItem";
 import ProjectId from "../../models/ProjectId";
 
 
-export const projects: Map<ProjectId, ProjectItem> = new Map<ProjectId, ProjectItem>([
+export const personalProjects: Map<ProjectId, ProjectItem> = new Map<ProjectId, ProjectItem>([
     [ProjectId.DUMMY, new ProjectItem("Test Project", "This is a test project", null, null)]
     ,[ProjectId.SHUFFLER, new ProjectItem(
         "Attention Shuffler", 
@@ -37,10 +37,20 @@ const PortfolioPage = () => {
     
     const dummyProject = new ProjectItem("Test Project", "This is a test project", null, null);
 
-    const [selectedProject, setSelectedProject] = useState<ProjectItem>(dummyProject);
+    const [selectedProject, setSelectedProject] = useState<ProjectItem>(personalProjects.get(ProjectId.DUMMY) ?? dummyProject);
+
+    const selectProject = (projectId: ProjectId): void => {
+        const project = personalProjects.get(projectId);
+        if (project) {
+            setSelectedProject(project);
+        } else {
+            setSelectedProject(dummyProject);
+        }
+    }
+
     return <div>
-        <ProjectListContainer />
-        <ProjectCanvasDisplay />
+        <ProjectListContainer projects={personalProjects} setActiveProject={selectProject} />
+        <ProjectCanvasDisplay displayedProject={selectedProject} />
     </div>;
 };
 

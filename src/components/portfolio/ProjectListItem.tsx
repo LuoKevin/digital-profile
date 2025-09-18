@@ -1,5 +1,4 @@
 
-
 interface ProjectListItemProps {
     // Define any props needed for the ProjectListItem component
     title: string

@@ -1,5 +1,7 @@
+import ProjectId from "./ProjectId"
 
 export class ProjectItem {
+    projectId: ProjectId = ProjectId.DUMMY
     title: string
     description: string
     projectUrl: string | null
@@ -12,3 +14,4 @@ export class ProjectItem {
         this.imageUrl = imageUrl
     }
 }
+

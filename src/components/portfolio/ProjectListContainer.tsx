@@ -1,6 +1,12 @@
 import ProjectListItem from "./ProjectListItem";
 
 
+interface ProjectListContainerProps {
+    setActiveProject: (projectId: string | null) => void;
+}
+
+
+
 const ProjectListContainer = () => {
     return (<div className="">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">

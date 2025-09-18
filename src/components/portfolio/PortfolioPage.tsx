@@ -1,7 +1,12 @@
+import ProjectCanvasDisplay from "./ProjectCanvasDisplay";
+import ProjectListContainer from "./ProjectListContainer";
 
 
 const PortfolioPage = () => {
-    return <div>Portfolio Page</div>;
+    return <div>
+        <ProjectListContainer />
+        <ProjectCanvasDisplay />
+    </div>;
 };
 
 export default PortfolioPage;

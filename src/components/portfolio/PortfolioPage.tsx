@@ -3,6 +3,8 @@ import ProjectCanvasDisplay from "./ProjectCanvasDisplay";
 import ProjectListContainer from "./ProjectListContainer";
 import { ProjectItem } from "../../models/ProjectItem";
 import ProjectId from "../../models/ProjectId";
+import GlitchWrap from "../effectWrappers/GlitchWrap";
+import CRTAberrationWrap from "../effectWrappers/GlitchWrap";
 
 
 export const personalProjects: Map<ProjectId, ProjectItem> = new Map<ProjectId, ProjectItem>([
@@ -49,7 +51,14 @@ const PortfolioPage = () => {
     }
 
     return <div>
-        <ProjectListContainer projects={personalProjects} setActiveProject={selectProject} />
+        <CRTAberrationWrap
+      intensity={1}     // wobble
+      rgbOffset={5.0}     // strong channel split
+      bloom={1}         // glow
+      speed={1.1}
+      overlays
+      glitchJitter
+    > <ProjectListContainer projects={personalProjects} setActiveProject={selectProject} /></CRTAberrationWrap>
         <ProjectCanvasDisplay displayedProject={selectedProject} />
     </div>;
 };

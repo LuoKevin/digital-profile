@@ -5,6 +5,7 @@ interface ProjectCanvasDisplayProps {
 }
 
 const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({displayedProject}) => {
+
   return <div>ProjectCanvasDisplay</div>;
 }
 

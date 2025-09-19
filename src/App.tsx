@@ -1,13 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import PortfolioPage from './components/portfolio/PortfolioPage'
 
 function App() {
   return (
  
     <div className="App">
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <PortfolioPage />
     </div>
   )
 }

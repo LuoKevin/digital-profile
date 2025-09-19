@@ -40,6 +40,7 @@ export const personalProjects: Map<ProjectId, ProjectItem> = new Map<ProjectId, 
 const PortfolioPage = () => {
 
     useEffect(() => {
+        console.log("Initializing sketch.js");
        new Sketch({
              dom: document.getElementById("canvasContainer")
         });
@@ -58,7 +59,7 @@ const PortfolioPage = () => {
         }
     }
 
-    return <div id="canvasContainer" className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-4">
+    return <div  className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-4">
         <CRTAberrationWrap
       intensity={1}     // wobble
       rgbOffset={5.0}     // strong channel split

@@ -1,5 +1,5 @@
 import type { ProjectItem } from "../../models/ProjectItem";
-import brain from "../../../public/3.jpg";
+import img from "../../../public/Timeline 2.gif";
 
 interface ProjectCanvasDisplayProps {
     displayedProject: ProjectItem
@@ -7,9 +7,15 @@ interface ProjectCanvasDisplayProps {
 
 const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({displayedProject}) => {
 
-  return <div className="flex flex-col items-center justify-center">
-    <img src={brain} alt="Windows" className="w-96 h-auto"/>
-  </div>;
+  return <div id="canvasContainer"
+      data-grid="607"
+				data-mouse="0.11"
+				data-strength="0.36"
+				data-relaxation="0.96"
+      
+     >
+        <img src={img} alt="" />
+      </div>
 }
 
 export default ProjectCanvasDisplay;

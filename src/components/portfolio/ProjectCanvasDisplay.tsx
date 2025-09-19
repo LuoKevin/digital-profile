@@ -1,4 +1,5 @@
 import type { ProjectItem } from "../../models/ProjectItem";
+import brain from "../../../public/3.jpg";
 
 interface ProjectCanvasDisplayProps {
     displayedProject: ProjectItem
@@ -6,7 +7,9 @@ interface ProjectCanvasDisplayProps {
 
 const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({displayedProject}) => {
 
-  return <div>ProjectCanvasDisplay</div>;
+  return <div className="flex flex-col items-center justify-center">
+    <img src={brain} alt="Windows" className="w-96 h-auto"/>
+  </div>;
 }
 
 export default ProjectCanvasDisplay;

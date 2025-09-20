@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ProjectCanvasDisplay from "./ProjectCanvasDisplay";
 import ProjectListContainer from "./ProjectListContainer";
 import { ProjectItem } from "../../models/ProjectItem";
@@ -6,7 +6,7 @@ import ProjectId from "../../models/ProjectId";
 import GlitchWrap from "../effectWrappers/GlitchWrap";
 import CRTAberrationWrap from "../effectWrappers/GlitchWrap";
 // @ts-ignore: sketch.js has no type declarations
-import Sketch from '../../sketch.js'
+import Sketch from '../../sketch-exp.js'
 
 
 export const personalProjects: Map<ProjectId, ProjectItem> = new Map<ProjectId, ProjectItem>([
@@ -39,12 +39,15 @@ export const personalProjects: Map<ProjectId, ProjectItem> = new Map<ProjectId, 
 
 const PortfolioPage = () => {
 
+    const sketch = useRef<any>(null);
+
     useEffect(() => {
         console.log("Initializing sketch.js");
-       new Sketch({
+       sketch.current = new Sketch({
              dom: document.getElementById("canvasContainer")
         });
     }, []);
+
     
     const dummyProject = new ProjectItem("Test Project", "This is a test project", null, null);
 
@@ -59,16 +62,21 @@ const PortfolioPage = () => {
         }
     }
 
-    return <div  className="min-h-screen w-full flex flex-col items-center justify-center bg-gradient-to-b from-gray-900 via-gray-800 to-gray-900 text-white p-4">
-        <CRTAberrationWrap
+    return <div  className="">
+        {/* <CRTAberrationWrap
       intensity={1}     // wobble
       rgbOffset={5.0}     // strong channel split
       bloom={1}         // glow
       speed={1.1}
       overlays
       glitchJitter
-    > <ProjectListContainer projects={personalProjects} setActiveProject={selectProject} /></CRTAberrationWrap>
+    > <ProjectListContainer projects={personalProjects} setActiveProject={selectProject} /></CRTAberrationWrap> */}
         <ProjectCanvasDisplay displayedProject={selectedProject} />
+        <button onClick={() => {
+            if (sketch.current) {
+                sketch.current.triggerPulse({ x: 0.5, y: 0.5, radius: 10, strength: 160 });
+            }
+        }}>Regnerate!</button>
     </div>;
 };
 

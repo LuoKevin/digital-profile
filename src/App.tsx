@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import PortfolioPage from './components/portfolio/PortfolioPage'
 

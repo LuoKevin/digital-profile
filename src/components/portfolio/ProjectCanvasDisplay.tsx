@@ -5,7 +5,7 @@ interface ProjectCanvasDisplayProps {
     displayedProject: ProjectItem
 }
 
-const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({displayedProject}) => {
+const ProjectCanvasDisplay: React.FC<ProjectCanvasDisplayProps> = ({}) => {
 
   return <div id="canvasContainer"
       data-grid="607"

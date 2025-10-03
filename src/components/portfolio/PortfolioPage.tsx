@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import ProjectCanvasDisplay from "./ProjectCanvasDisplay";
 import { ProjectItem } from "../../models/ProjectItem";
 import ProjectId from "../../models/ProjectId";

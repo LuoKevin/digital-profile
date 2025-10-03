@@ -11,7 +11,7 @@ const ProjectListContainer: React.FC<ProjectListContainerProps> = ({projects, se
     return (<div className="">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {[...projects.values()].map((project) => (
-                <li key={project.projectId} className="bg-white p-4 rounded-lg shadow-md">
+                <li  onClick={() => {}} key={project.projectId} className="bg-white p-4 rounded-lg shadow-md">
                    <ProjectListItem title={project.title} description={project.description} projectUrl={project.projectUrl} imageUrl={project.imageUrl}/>
                 </li>
             ))}
